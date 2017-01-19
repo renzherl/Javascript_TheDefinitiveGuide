@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title>Simple Document</title>
+    <script src="Dom.js"></script>
+    <link rel="stylesheet" type="text/css" href="Dom.css">
+</head>
+
+<body>
+    <h1>JavaScript Reading Group, Chapter 15</h1>
+    <p class="Wendi Chenghua" >This is a <i>paragraph</i></p>
+    <p class="Wendi" id="intro">Hello World!</p>
+    <p id="demo" class="Wendi" >Zhangjie want a init value</p>
+
+    <button type="button" onclick="showDate()">Click me to display Date and Time.</button>
+    
+    <div class="example3">
+        <input type="radio" name="gender" value="male"> Male </input>
+        <input type="radio" name="gender" value="female"> Female</input>
+        <input type="radio" name="gender" value="other"> Other</input>
+        <input type="button" onclick="getradioButtonByName()" value="How many genders?" />
+    </div>
+
+    <input type="button" onclick="get_p()" value="How many p?" />    
+
+<script>
+    // var myElement = document.getElementById("intro");
+    // document.getElementById("demo").innerHTML =
+    //     "The text from the intro paragraph is " + myElement.innerHTML;
+	document.write(Date());
+    // //function writeDate(){
+    // //document.write(Date());
+    // //}
+
+    function moveOn() {
+        var answer = confirm("Are you ready?");
+        if (answer) window.location = "http://taobao.com";
+    }
+    //setTimeout(moveOn, 40000);
+</script>
+</body>
+
+</html>
