@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./jquery-3.1.1.min.js"></script>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        padding-bottom: 100px;
+    }
+    textarea{
+        width: calc( 100% - 4px );
+        resize: none;
+        border: 2px solid #999;
+        background: #f5f5f5;
+        font-family: Courier New, Courier, monospace;
+        font-size: 18px;
+    }
+    </style>
+</head>
+<body>
+    <h2>DOM</h2>
+    <hr>
+    <br>
+    <h3>dom functions</h3>
+    <div id="test"></div>
+    <br>
+    <hr>
+    <div class="container">
+      <ul>
+            <li id="li-1">1</li>
+            <li>2</li>
+            <li id="li-3">3</li>
+      </ul>
+      <div class="for-css"></div>
+    </div>
+    <h3>DOM code</h3>
+    <textarea style="height: 120px;">
+         <ul>
+            <li id="li-1">1</li>
+            <li>2</li>
+            <li id="li-3">3</li>
+        </ul>
+    </textarea>
+    <br>
+    <textarea style="height: 480px;">
+        //children
+        var children = $('ul').children();
+        console.log('children---->',children);
+        //next
+        var next = $('#li-1').next();
+        console.log('next ----->',next);
+        //prev
+        var prev = $('#li-3').prev();
+        console.log('prev--->',prev);
+        //siblings
+        var  siblings = $('#li-1').siblings();
+        console.log('siblings---->',siblings);
+        //parent
+        var  parent = $('#li-1').parent();
+        console.log('parent---->',parent);
+    </textarea>
+    <br>
+
+    <script>
+        //children
+        var children = $('ul').children();
+        console.log('children---->',children);
+        //next
+        var next = $('#li-1').next();
+        console.log('next ----->',next);
+        //prev
+        var prev = $('#li-3').prev();
+        console.log('prev--->',prev);
+        //siblings
+        var  siblings = $('#li-1').siblings();
+        console.log('siblings---->',siblings);
+        //parent
+        var  parent = $('#li-1').parent();
+        console.log('parent---->',parent);
+
+        /*-------------------css Dom-------------------------------*/
+        //height
+        $('.for-css').height('100px');
+
+        //width
+        $('.for-css').width('100px');
+
+        //css
+        $('.for-css').css({'background':'red','margin-left': '20px'});
+
+        //offset
+        var offset = $('.for-css').offset();
+        console.log('offset---->',offset);
+
+        //position
+        var position = $('.for-css').position();
+         console.log('position---->',position);
+
+         
+    </script>
+</body>
+</html>

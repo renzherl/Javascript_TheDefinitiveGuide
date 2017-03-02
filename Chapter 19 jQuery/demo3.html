@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>selector</title>
+    <script src="./jquery-3.1.1.min.js"></script>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        padding: 20px;
+    }
+    textarea{
+        height: 480px;
+        width:calc( 100% - 4px );
+        resize: none;
+        border: 2px solid #999;
+        background: #f5f5f5;
+        font-family: Courier New, Courier, monospace;
+        font-size: 18px;
+    }
+    .color-span{
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Courier New, Courier, monospace;
+    }
+    </style>
+</head>
+<body>
+    <h2>selector</h2>
+    <hr>
+    <br>
+    <h3>selector in jquery</h3>
+    <div id="test"></div>
+    <br>
+    <hr>
+    <br>
+    <span class="color-span" style="color:#38B03F">#38B03F</span>
+    <span class="color-span" style="color:#8666B8">#8666B8</span>
+    <hr>
+    <h3>DOM</h3>
+    <textarea style="height: 220px;">
+        <div id="test-id" class="test-class" value="test-value">
+            <span id="span-1" class="span-list">span-list</span>
+            <span class="span-list">span-list</span>
+            <span class="span-list">span-list</span>
+            <span class="span-list">span-list</span>
+            <div id="inner-div" class="inner-div">
+                <span class="inner-span">inner-span</span>
+            </div>
+        </div>
+        <span class="span-out">span-out</span>
+    </textarea>
+    <br>
+    <hr>
+    <h3>CODE</h3>
+    <textarea>
+        // tag
+    $('body').css({background:'#fff'});
+    $('span.span-list').css({});
+    // id
+    $('#test-id').css({background:"#38B03F",height:'100px',padding:'10px'});
+
+    // class
+    $('.span-list').css({color:'#fff',display:'block'});
+
+    //层次选择
+    $('#test-id span').css({color:'red'});//Id为test-id 内部的所有span，不考虑span 的层级限制
+    $('#test-id>span').css({color:'red'});
+
+    $('#span-1+span').css({color:'black'});//#span-1 紧邻的下一个span元素
+    
+    //过滤选择器 
+    // :first
+    //:last
+    $('.span-list:first').css({color:'#fff'});
+    //:even 偶数
+    //:odd 奇数
+    $('.span-list:odd').css({background:'#fff'});
+
+    // :eq 选取索引值
+    // :gt 大于索引值
+    // :lt  小于索引值
+    $('.span-list:eq(3)').css({color:'#38B03F'});
+
+    //属性选择器
+    /*
+    当然这里写的是其中一个属性等于什么的情况
+    还有很多类似
+    不等于
+    以什么开头等等。。。
+    */
+    $('div[value=test-value]').css({'border-top':'10px solid #8666B8'});
+
+    //子元素选择器
+    //  :nth-child
+    //  :first-child
+    //  :last-child
+    //  :only-child
+        $('div span:only-child').css({'font-size':'20px'});
+        // $('div span:first-child').css({'font-size':'20px'});
+    </textarea>
+    <div id="test-id" class="test-class" value="test-value">
+        <span id="span-1" class="span-list">span-list</span>
+        <span class="span-list">span-list</span>
+        <span class="span-list">span-list</span>
+        <span class="span-list">span-list</span>
+        <div id="inner-div" class="inner-div">
+            <span class="inner-span">inner-span</span>
+        </div>
+    </div>
+    <span class="span-out">span-out</span>
+    
+    <script>
+    // tag
+    $('body').css({background:'#fff'});
+    $('span.span-list').css({});
+    // id
+    $('#test-id').css({background:"#38B03F",height:'100px',padding:'10px'});
+
+    // class
+    $('.span-list').css({color:'#fff',display:'block'});
+
+    //层次选择
+    $('#test-id span').css({color:'red'});//Id为test-id 内部的所有span，不考虑span 的层级限制
+    $('#test-id>span').css({color:'red'});
+
+    $('#span-1+span').css({color:'black'});//#span-1 紧邻的下一个span元素
+    
+    //过滤选择器 
+    // :first
+    //:last
+    $('.span-list:first').css({color:'#fff'});
+    //:even 偶数
+    //:odd 奇数
+    $('.span-list:odd').css({background:'#fff'});
+
+    // :eq 选取索引值
+    // :gt 大于索引值
+    // :lt  小于索引值
+    $('.span-list:eq(3)').css({color:'#38B03F'});
+
+    //属性选择器
+    /*
+    当然这里写的是其中一个属性等于什么的情况
+    还有很多类似
+    不等于
+    以什么开头等等。。。
+    */
+    $('div[value=test-value]').css({'border-top':'10px solid #8666B8'});
+
+    //子元素选择器
+    //  :nth-child
+    //  :first-child
+    //  :last-child
+    //  :only-child
+        $('div span:only-child').css({'font-size':'20px'});
+        // $('div span:first-child').css({'font-size':'20px'});
+    </script>
+</body>
+</html>

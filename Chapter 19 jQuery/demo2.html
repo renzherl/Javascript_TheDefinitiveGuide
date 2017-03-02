@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>selector</title>
+    <script src="./jquery-3.1.1.min.js"></script>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        padding: 20px;
+    }
+    textarea{
+        height: 580px;
+        width: calc( 100% - 4px );
+        resize: none;
+        border: 2px solid #999;
+        background: #f5f5f5;
+        font-family: Courier New, Courier, monospace;
+        font-size: 18px;
+        color: #333;
+    }
+    </style>
+</head>
+<body>
+    <h2>selector</h2>
+    <hr>
+    <br>
+    <h3>the different between javascript and jquery on use selector and check dom exist</h3>
+    <div id="test"></div>
+    <br>
+    <hr>
+    <br>
+    <h3>code</h3>
+    <textarea>
+        var test1 = document.getElementById('test1');
+        // test1.style.background = 'red';
+
+        // if(test1){
+        //     test1.style.background = 'red';
+        // }
+
+        var $test1 = $('#test1');
+        $test1.css("background",'red');
+
+        console.log('test1',test1);
+        console.log('$test1',$test1);
+        console.log('$test1.length',$test1.length);
+        console.log('dom',$test1[0]);
+
+        if($test1) { // always true
+            //do something...
+            console.log('1');
+        }
+
+        if($test1.length>0){
+            //TODO something....
+            console.log('2');
+        }
+        if($test1[0]){
+            //TODO ....
+            console.log('3');
+        }
+    </textarea>
+    <script>
+        var test1 = document.getElementById('test1');
+        // test1.style.background = 'red';
+
+        // if(test1){
+        //     test1.style.background = 'red';
+        // }
+
+        var $test1 = $('#test');
+        $test1.css("background",'red');
+
+        console.log('test1',test1);
+        console.log('$test1',$test1);
+        console.log('$test1.length',$test1.length);
+        console.log('dom',$test1[0]);
+
+        if($test1) { // always true
+            //do something...
+            console.log('1');
+        }
+
+        if($test1.length>0){
+            //TODO something....
+            console.log('2');
+        }
+        if($test1[0]){
+            //TODO ....
+            console.log('3');
+        }
+    </script>
+</body>
+</html>

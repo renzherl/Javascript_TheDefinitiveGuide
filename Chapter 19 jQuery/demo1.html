@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        padding: 100px;
+    }
+    #test{
+        height: 100px;
+        width: 100px;
+        background: #EA644A;
+    }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+</body>
+<script src="./jquery-3.1.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        console.log('page init finished');
+
+        //jquery code
+        setTimeout(function(){
+            var $test = $('#test');
+            $test.css("background","black");
+            $test.css({background:'black',border:'2px solid red'});
+
+             //javascript code
+            setTimeout(function(){
+                var test = document.getElementById('test');
+                test.style.background = 'red';
+                test.style.borderColor = 'black';
+            },3000);
+
+        },3000);
+    });
+</script>
+</html>

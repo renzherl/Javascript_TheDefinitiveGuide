@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./jquery-3.1.1.min.js"></script>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        padding-bottom: 100px;
+    }
+    textarea{
+        width: calc( 100% - 4px );
+        resize: none;
+        border: 2px solid #999;
+        background: #f5f5f5;
+        font-family: Courier New, Courier, monospace;
+        font-size: 18px;
+    }
+    </style>
+</head>
+<body>
+    <h2>EVENT</h2>
+    <hr>
+    <br>
+    <h3>events</h3>
+    <br>
+    <hr>
+    <div class="container">
+        <h2 class="a">for bind click event </h2>
+        <h2 class="b">for bind click event </h2>
+        <h2 class="c">for bind click event </h2>
+        <h2 class="d">for bind click event </h2>
+    </div>
+    <h3>DOM code</h3>
+    <textarea style="height: 120px;">
+        <h2 class="a">for bind click event </h2>
+        <h2 class="b">for bind click event </h2>
+        <h2 class="c">for bind click event </h2>
+        <h2 class="d">for bind click event </h2>
+    </textarea>
+    <br>
+    <textarea style="height: 480px;">
+        $(document).ready();
+    
+    //on
+    //支持 clicked,hover,mouseover,mouseout,mouseenter,mousemove.......
+    //old version bind() 
+    $('.a').on('click',function(){
+        alert('h1 has class a clicked');
+    });
+    $('.container').on('click','.b',function(){
+        confirm('b clicked~');
+    });
+    //off
+    $('.a').off('click').on('click',function(){
+        alert('h1 has class a clicked');
+    });
+
+    //mouseover
+    $('.container h2').mouseover(function(){
+        $(this).css('color','red');
+    }).mouseout(function(){
+        $(this).css('color','black');
+    });
+
+    //hover 
+
+    // $('.container h2').hover(function(){
+    //     $(this).css('color','red');
+    // },function(){
+    //     $(this).css('color','black');
+    // });
+    
+    //冒泡
+    $('.container').on('click',function(){
+        console.log('div clicked');
+    });
+    $('h2').on('click',function(event){
+        console.log('h2 clicked');
+        // event.stopPropagation();
+    });
+    $('body').on('click',function(){
+        console.log('body clicked');
+    });
+
+    //事件对象
+    $('body').on('click',function(event){
+        console.log('this is the event body ----->',event);
+        event.stopPropagation();//stop 冒泡
+        var $dom = $(event.target);
+        console.log($dom);
+        //.......event里面还有一些其他的属性。。。。。
+    });
+
+    //命名空间 name space
+    $('.container').on('click.namespace',function(){
+        console.log('1');
+    });
+    $('.container').on('mouseover.namespace',function(){
+        console.log('2');
+    });
+    $('.container').off('.namespace');
+    </textarea>
+    <br>
+
+    <script>
+    //页面加载完成出发该事件
+    $(document).ready();
+    
+    //on
+    //支持 clicked,hover,mouseover,mouseout,mouseenter,mousemove.......
+    //old version bind() 
+    $('.a').on('click',function(){
+        alert('h1 has class a clicked');
+    });
+    $('.container').on('click','.b',function(){
+        confirm('b clicked~');
+    });
+    //off
+    $('.a').off('click').on('click',function(){
+        alert('h1 has class a clicked');
+    });
+
+    //mouseover
+    $('.container h2').mouseover(function(){
+        $(this).css('color','red');
+    }).mouseout(function(){
+        $(this).css('color','black');
+    });
+
+    //hover 
+
+    // $('.container h2').hover(function(){
+    //     $(this).css('color','red');
+    // },function(){
+    //     $(this).css('color','black');
+    // });
+    
+    //冒泡
+    $('.container').on('click',function(){
+        console.log('div clicked');
+    });
+    $('h2').on('click',function(event){
+        console.log('h2 clicked');
+        // event.stopPropagation();
+    });
+    $('body').on('click',function(){
+        console.log('body clicked');
+    });
+
+    //事件对象
+    $('body').on('click',function(event){
+        console.log('this is the event body ----->',event);
+        event.stopPropagation();//stop 冒泡
+        var $dom = $(event.target);
+        console.log($dom);
+        //.......event里面还有一些其他的属性。。。。。
+    });
+
+    //命名空间 name space
+    $('.container').on('click.namespace',function(){
+        console.log('1');
+    });
+    $('.container').on('mouseover.namespace',function(){
+        console.log('2');
+    });
+    $('.container').off('.namespace');
+    </script>
+</body>
+</html>

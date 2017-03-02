@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./jquery-3.1.1.min.js"></script>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        padding-bottom: 100px;
+    }
+    textarea{
+        width: calc( 100% - 4px );
+        resize: none;
+        border: 2px solid #999;
+        background: #f5f5f5;
+        font-family: Courier New, Courier, monospace;
+        font-size: 18px;
+    }
+    #toggle{
+        height: 100px;
+        width: 100px;
+        
+    }
+    .toggle-a{
+        background: #8666B8;
+    }
+    .toggle-b{
+        background: #03B8CF;
+    }
+    button{
+        height: 30px;
+        width: 80px;
+        border:none;
+        background: #EA644A;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 18px;
+    }
+    </style>
+</head>
+<body>
+    <h2>DOM</h2>
+    <hr>
+    <br>
+    <h3>dom attr operating</h3>
+    <div id="test"></div>
+    <br>
+    <hr>
+    <div class="container">
+        <p>which language is best?</p>
+        <br>
+        <ul class="ul-container for-remove">
+            <li class="" value="value-c">C</li>
+            <li value="value-c#" title="title">C#</li>
+            <li value="value-c++">C++</li>
+            <li value="value-PHP">PHP</li>
+            <li value="value-python">python</li>
+            <li value="value-java">java</li>
+            <li value="value-javascript">javascript</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h3>DOM code</h3>
+    </div>
+    <textarea style="height: 480px;">
+           
+        //属性操作
+        //修改
+        $('ul li:eq(0)').attr('value','value-changed');
+
+        //删除
+        $('ul li:eq(1)').removeAttr('title');
+
+        //获取
+        var ul_class = $('ul').attr('class');
+        console.log('ul class ------>',ul_class);
+
+        //修改
+        $('ul').attr('class','test-add');//会覆盖原有的class
+        $('ul').addClass('another-class');//新加一个class
+
+        //删除
+        $('ul').removeClass('for-remove');//remove一个class
+        
+        var toggle_flag = false;
+        $('#click').click(function(){
+            toggle_flag = !toggle_flag;
+            if(toggle_flag){
+                // $('#toggle').attr('class','toggle-b');
+                $('#toggle').removeClass('toggle-a').addClass('toggle-b');
+            }else{
+                // $('#toggle').attr('class','toggle-a');
+                $('#toggle').removeClass('toggle-b').addClass('toggle-a');
+            }
+        });
+
+        //check class exsit
+        //
+                if($('#toggle').hasClass('toggle-a')){
+                    $('#toggle').removeClass('toggle-a');
+                }else{
+                    $('#toggle').addClass('toggle-b');
+                }
+
+          
+    </textarea>
+    <br>
+    <div class="demo-area" style="padding-left: 100px;">
+        <div id="toggle" class="toggle-a"></div>
+        <br>
+        <button id="click">click</button>
+    </div>
+    <script>
+        
+        //属性操作
+        //修改
+        $('ul li:eq(0)').attr('value','value-changed');
+
+        //删除
+        $('ul li:eq(1)').removeAttr('title');
+
+        //获取
+        var ul_class = $('ul').attr('class');
+        console.log('ul class ------>',ul_class);
+
+        //修改
+        $('ul').attr('class','test-add');//会覆盖原有的class
+        $('ul').addClass('another-class');//新加一个class
+
+        //删除
+        $('ul').removeClass('for-remove');//remove一个class
+
+        var toggle_flag = false;
+        $('#click').click(function(){
+            toggle_flag = !toggle_flag;
+            if(toggle_flag){
+                // $('#toggle').attr('class','toggle-b');
+                $('#toggle').removeClass('toggle-a').addClass('toggle-b');
+            }else{
+                // $('#toggle').attr('class','toggle-a');
+                $('#toggle').removeClass('toggle-b').addClass('toggle-a');
+            }
+        });
+
+        //check class exsit
+        //
+                // if($('#toggle').hasClass('toggle-a')){
+                //     $('#toggle').removeClass('toggle-a');
+                // }else{
+                //     $('#toggle').addClass('toggle-b');
+                // }
+
+          
+    </script>
+</body>
+</html>

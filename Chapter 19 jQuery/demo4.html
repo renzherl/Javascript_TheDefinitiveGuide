@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./jquery-3.1.1.min.js"></script>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    textarea{
+        width: calc( 100% - 4px );
+        resize: none;
+        border: 2px solid #999;
+        background: #f5f5f5;
+        font-family: Courier New, Courier, monospace;
+        font-size: 18px;
+    }
+    </style>
+</head>
+<body>
+    <h2>DOM</h2>
+    <hr>
+    <br>
+    <h3>dom operating</h3>
+    <div id="test"></div>
+    <br>
+    <hr>
+    <div class="container">
+        <p>which language is best?</p>
+        <br>
+        <ul>
+            <li value="value-c">C</li>
+            <li value="value-c#">C#</li>
+            <li value="value-c++">C++</li>
+            <li value="value-PHP">PHP</li>
+            <li value="value-python">python</li>
+            <li value="value-java">java</li>
+            <li value="value-javascript">javascript</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h3>DOM code</h3>
+        <textarea style="height: 270px;">
+            <div class="inner-container">
+                <span>I am here</span>
+            </div>
+            <br>
+            <h3>for remove method</h3>
+            <div class="for-remove">
+                <span>remove span1</span>
+                <span>remove span2</span>
+            </div>
+            <br>
+            <div class="for-wrap">
+                <span>test for wrap</span>
+            </div>
+        </textarea>
+        <div class="inner-container">
+            <span>I am here</span>
+        </div>
+        <br>
+        <h3>for remove method</h3>
+        <div class="for-remove">
+            <span>remove span1</span>
+            <span>remove span2</span>
+        </div>
+        <br>
+        <div class="for-wrap">
+            <span>test for wrap</span>
+        </div>
+    </div>
+    <textarea style="height: 480px;">
+        //获取内容
+        var text = $('ul li:eq(0)').text();
+        console.log('text info ------>',text);
+
+        //获取属性
+        var value = $('ul li:last-child').attr('value');
+        console.log('value info ------>',value);
+
+        //  html
+        var html = $('.inner-container').html();//获取元素内部html 
+        console.log('html info------->',html);
+
+        $('.inner-container').html('');//赋值操作，该方法执行后会清空该元素内部全部元素
+
+        var after_html = '<p>after html</p>';
+        $('.inner-container').html(after_html);
+
+        // append 向内尾部添加
+        var append1_html = '<p>append1 html</p>';
+        $('.inner-container').append(append1_html);
+        console.log(append1_html);
+
+        var $append_html = $('<p>append2 html</p>');
+        $('.inner-container').append($append_html);
+        console.log($append_html);
+        $append_html.css({color:'#8666B8'});
+
+        //prepend 向内部前面添加
+        var $front_html = $('<p>front html</p>');
+        $('.inner-container').prepend($front_html);
+        $front_html.css({color:'#8666B8'});
+
+        //after
+        //before
+        var $after_html = $('<br><p>after html</p>');
+        $('.inner-container').after($after_html);
+        var $before_html = $('<p>before html</p><br>');
+        $('.inner-container').before($before_html);
+
+        //remove
+        console.log($('.for-remove>span:eq(0)'));
+        $('.for-remove>span:eq(0)').remove();
+
+        //empty
+        /*
+        清空元素内部的全部内容，包括子元素
+        类似 $().html('');
+        */
+        $('.for-remove').empty();
+
+        //wrap
+        console.log('before wrap ----->',$('.for-wrap').html());
+
+        $('.for-wrap span').wrap('<div class="add-tag"></div>');
+
+        console.log('after wrap ---->',$('.for-wrap').html());
+    </textarea>
+    <script>
+        //获取内容
+        var text = $('ul li:eq(0)').text();
+        console.log('text info ------>',text);
+
+        //获取属性
+        var value = $('ul li:last-child').attr('value');
+        console.log('value info ------>',value);
+
+        //  html
+        var html = $('.inner-container').html();//获取元素内部html 
+        console.log('html info------->',html);
+
+        $('.inner-container').html('');//赋值操作，该方法执行后会清空该元素内部全部元素
+
+        var after_html = '<p>after html</p>';
+        $('.inner-container').html(after_html);
+
+        // append 向内尾部添加
+        var append1_html = '<p>append1 html</p>';
+        $('.inner-container').append(append1_html);
+        console.log(append1_html);
+
+        var $append_html = $('<p>append2 html</p>');
+        $('.inner-container').append($append_html);
+        console.log($append_html);
+        $append_html.css({color:'#8666B8'});
+
+        //prepend 向内部前面添加
+        var $front_html = $('<p>front html</p>');
+        $('.inner-container').prepend($front_html);
+        $front_html.css({color:'#8666B8'});
+
+        //after
+        //before
+        var $after_html = $('<br><p>after html</p>');
+        $('.inner-container').after($after_html);
+        var $before_html = $('<p>before html</p><br>');
+        $('.inner-container').before($before_html);
+
+        //remove
+        console.log($('.for-remove>span:eq(0)'));
+        $('.for-remove>span:eq(0)').remove();
+
+        //empty
+        /*
+        清空元素内部的全部内容，包括子元素
+        类似 $().html('');
+        */
+        $('.for-remove').empty();
+
+        //wrap
+        console.log('before wrap ----->',$('.for-wrap').html());
+
+        $('.for-wrap span').wrap('<div class="add-tag"></div>');
+
+        console.log('after wrap ---->',$('.for-wrap').html());
+
+    </script>
+</body>
+</html>
