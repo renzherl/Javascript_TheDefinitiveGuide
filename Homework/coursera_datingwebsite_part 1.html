@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A simple Dating WebSite</title>
+    <meta name="author" content="Li RAO">
+</head>
+
+<body>
+    <h1>Please Entesr Your Details For Our Dating Website!</h1>
+
+    <form method="post" enctype="multipart/form-data" action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php">
+        <fieldset>
+            <legend>Your Face</legend>
+            Your image: <input type="file" name="preview" id="preview" required> <br> 
+            Image preview:  <br>
+        </fieldset> <br>
+        
+        <fieldset>
+            <legend>Your General Details</legend>
+            Name: <input type="text" name="name" placeholder="Your full name" required> <br> 
+            Gender: <input type="radio" name="gender" value="Male" required> Male <input type="radio" name="gender" value="Female"> Female <br>
+            Age: <input type="number" value="18" min="0" max="99" step="1" required> <br>
+            Date of birth: <input type="date"> <br>
+            Favorite color: <input type="color" value="balck"> <br>
+            Which country: <select name="country">
+                                <option value="china">China</option>
+                                <option value="us">USA</option>
+                                <option value="uk">UK</option>
+                                <option value="france">France</option> 
+                                <option value="russia">Russia</option> 
+                            </select><br>
+        </fieldset> <br>
+        
+        <fieldset>
+            <legend>Your Indicators</legend>
+            Height: Short <input type="range" min="0" max="100" step="5" value="50" id="height" name="height"> Tail <br> 
+            Salary: Poor  <input type="range" min="0" max="100" step="5" value="50" id="salary" name="salary"> Rich <br>
+        </fieldset> <br>
+
+        <fieldset>
+            <legend>Your Contact Information</legend>
+            Email: <input type="email" name="email" required> <br> 
+            Mobile: <input type="tel" name="mobile"> <br>
+            Address: <textarea rows="3" cols="60" name="address"> </textarea><br>
+            Method to contact you:  <input type="checkbox" name="items" >Email
+                                    <input type="checkbox" name="items" >Whatsapp
+                                    <input type="checkbox" name="items" >In-app chat <br>
+        </fieldset> <br>
+        
+        <input type="submit" value="Send">
+    </form>
+
+</body>
+
+</html>
