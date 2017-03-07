@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Guessing Color Game</title>
+    <meta name="author" content="Li RAO">
+</head>
+
+<body onload="do_game()">
+
+<script>
+    var target_color;
+    var guess_color;
+    var finished = false;
+    var guesses = 0;
+    var colors = ["blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
+
+    function do_game() {
+        var random_number = Math.random() * (colors.length);
+        var random_number_integer = Math.floor(random_number);
+        console.log("random_number_integer: " + random_number_integer);
+        target_color = colors[random_number_integer];
+        console.log("target_color: " + target_color);
+
+        while (!finished) {
+            guess_color = prompt("I am thinking one of these colors:\n\n" + colors + "\n\n" + "Which color am I thinking of?");
+            guesses += 1;
+            finished = check_guess();
+        }
+    }
+
+    function check_guess() {
+        if (!isValidColor(guess_color)) {
+            alert("Sorry, I do not recogniaze this color: " + guess_color + "\n\n" + "Please try again." + "\n\n");
+            return false;
+        }
+        if (guess_color < target_color) {
+            alert("Sorry, your guess is not correct!\n\n" + "Hint: Your color is alphabetically lower than mine\n\n" + "Please try again.\n\n");
+            return false;
+        }
+
+        if (guess_color > target_color) {
+            alert("Sorry, your guess is not correct!\n\n" + "Hint: Your color is alphabetically higher than mine\n\n" + "Please try again.\n\n");
+            return false;
+        }
+        alert("Congratulation! You have guessed the color!\n\n It took you " + guesses + " guesses to finish the game!\n\n" + "You can see the colour in the background");
+        set_background_color(guess_color);
+        return true;
+    }
+
+    function isValidColor(c) {
+        return (colors.indexOf(c) !== -1);
+    }
+
+    function set_background_color(c) {
+        var myBody = document.getElementsByTagName("body")[0];
+        myBody.style.background = c;
+    }
+
+</script>
+</body>
+
+</html>
